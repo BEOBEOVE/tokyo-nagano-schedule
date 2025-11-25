@@ -1,10 +1,12 @@
 :root {
-    --primary-color: #b45f75; /* Sakura pink/red */
-    --secondary-color: #fce4ec; /* Light sakura */
+    --primary-color: #b45f75;
+    /* Sakura pink/red */
+    --secondary-color: #fce4ec;
+    /* Light sakura */
     --text-color: #333;
     --bg-color: #f9f9f9;
     --card-bg: #ffffff;
-    --shadow: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --font-serif: 'Noto Serif TC', serif;
     --font-sans: 'Roboto', sans-serif;
 }
@@ -46,27 +48,81 @@ main {
     padding: 0 1rem;
 }
 
+/* Timeline Container */
+#schedule-container {
+    position: relative;
+    padding-left: 20px;
+    /* Space for the line */
+}
+
+.timeline-entry {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+/* Continuous Line */
+.timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    /* Center of the dot (20px width / 2 - 1px width) */
+    top: 20px;
+    /* Start below the dot */
+    bottom: -20px;
+    /* Connect to next */
+    width: 2px;
+    background-color: #e0e0e0;
+    z-index: 0;
+}
+
+.timeline-entry:last-child::before {
+    display: none;
+}
+
+/* Dot */
+.timeline-marker {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary-color);
+    margin-top: 1.5rem;
+    /* Align with card header */
+    z-index: 1;
+    position: relative;
+}
+
 .schedule-card {
+    flex: 1;
     background: var(--card-bg);
     border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
     box-shadow: var(--shadow);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     border-left: 5px solid var(--primary-color);
+    overflow: hidden;
+    /* For accordion animation */
 }
 
 .schedule-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header-content {
+    /* Group header elements to separate from details */
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .day-tag {
@@ -95,58 +151,29 @@ main {
     gap: 0.5rem;
     font-size: 0.9rem;
     color: #555;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid #eee;
+    margin-top: 0.5rem;
 }
 
-/* Modal */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+/* Accordion Details */
+.card-details {
+    max-height: 0;
     opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-top 0.3s;
+    margin-top: 0;
 }
 
-.modal.visible {
+.schedule-card.expanded .card-details {
+    max-height: 1000px;
+    /* Arbitrary large height */
     opacity: 1;
-    pointer-events: auto;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #eee;
+    transition: max-height 0.6s ease-in, opacity 0.4s ease-in, margin-top 0.3s;
 }
 
-.modal-content {
-    background-color: var(--card-bg);
-    width: 90%;
-    max-width: 600px;
-    max-height: 85vh;
-    border-radius: 12px;
-    padding: 2rem;
-    overflow-y: auto;
-    position: relative;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.close-button {
-    position: absolute;
-    top: 1rem;
-    right: 1.5rem;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #aaa;
-}
-
-.close-button:hover {
-    color: var(--text-color);
-}
-
+/* Timeline inside details */
 .timeline-item {
     display: flex;
     gap: 1rem;
@@ -186,7 +213,7 @@ main {
     background-color: #e3f2fd;
     padding: 1rem;
     border-radius: 8px;
-    margin-top: 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -196,6 +223,7 @@ main {
     font-size: 1.5rem;
 }
 
-.hidden {
+/* Remove Modal Styles as we are using Accordion */
+.modal {
     display: none;
 }

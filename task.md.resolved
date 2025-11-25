@@ -10,4 +10,8 @@
     - [x] Detail Modal/Page <!-- id: 7 -->
     - [x] Weather Widget <!-- id: 8 -->
 - [x] Style Application (Vanilla CSS, Traditional Chinese) <!-- id: 9 -->
-- [/] Deploy to GitHub Pages <!-- id: 10 -->
+- [x] Deploy to GitHub Pages <!-- id: 10 -->
+- [/] Implement Timeline Visuals (Dots & Lines) <!-- id: 11 -->
+- [/] Implement Expand/Collapse Interaction (Accordion) <!-- id: 12 -->
+- [ ] Verify Animations <!-- id: 13 -->
+- [ ] Redeploy Updates <!-- id: 14 -->
