@@ -1,0 +1,63 @@
+# Daily Schedule Web App Implementation Plan
+
+## Goal Description
+Create a web application to browse a daily travel schedule based on a provided Google Sheet. The app will show daily summaries, detailed itineraries with Google Maps links, and weather forecasts with clothing suggestions.
+
+## User Review Required
+- **Data Source**: The app will use a static JSON file generated from the Google Sheet. Updates to the sheet will not automatically reflect in the app unless the JSON is regenerated.
+- **Weather**: Weather forecasts will be fetched from OpenMeteo API based on the location of the day.
+- **Maps**: Google Maps links will be generated based on location names if not explicitly found in the sheet.
+
+## Proposed Changes
+
+### Data Layer
+#### [NEW] [schedule_data.json](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/data/schedule_data.json)
+- JSON file containing the parsed schedule:
+  ```json
+  [
+    {
+      "date": "2026-03-28",
+      "day": "Day 1",
+      "title": "抵達東京 → 輕井澤",
+      "location": "Karuizawa",
+      "items": [
+        { "time": "06:35", "activity": "抵達東京成田機場...", "location": "Narita Airport", "mapLink": "..." }
+      ]
+    }
+  ]
+  ```
+
+### Frontend (React + Vite)
+#### [NEW] [App.jsx](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/App.jsx)
+- Main layout component.
+- Handles routing (if using Router) or State for View switching (List vs Detail).
+
+#### [NEW] [components/ScheduleList.jsx](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/components/ScheduleList.jsx)
+- Displays the list of days.
+- Shows weather summary for each day.
+
+#### [NEW] [components/DayDetail.jsx](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/components/DayDetail.jsx)
+- Shows detailed timeline for a selected day.
+- Clickable items to open Google Maps.
+- Hourly weather forecast (if available/feasible) or detailed daily forecast.
+- Clothing suggestions.
+
+#### [NEW] [services/weather.js](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/services/weather.js)
+- Functions to fetch weather from OpenMeteo.
+- Mapping of Location Names to Coordinates (e.g., Karuizawa -> 36.34, 138.63).
+
+#### [NEW] [styles/main.css](file:///C:/Users/amyni/.gemini/antigravity/brain/bc479f62-af37-4067-a14a-0975bbe589a3/src/styles/main.css)
+- Vanilla CSS for styling.
+- Focus on "Traditional Chinese" typography and clean, modern aesthetics.
+
+## Verification Plan
+
+### Automated Tests
+- **Linting**: `npm run lint` to ensure code quality.
+- **Build**: `npm run build` to verify the app builds correctly.
+
+### Manual Verification
+- **Data Accuracy**: Compare the displayed schedule with the Google Sheet.
+- **Links**: Click every map link to ensure it opens the correct location.
+- **Weather**: Verify weather data loads and looks reasonable (e.g., not showing 50°C for Japan in March).
+- **Responsiveness**: Check UI on mobile and desktop viewports (using Browser DevTools).

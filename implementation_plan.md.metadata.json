@@ -1,0 +1,5 @@
+{
+  "artifactType": "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
+  "summary": "Plan for Daily Schedule Web App.\n- **Data**: Extract from Google Sheet to JSON.\n- **Tech**: React + Vite + Vanilla CSS.\n- **Features**: Daily view, Detail view with Maps, Weather + Clothing suggestions.\n- **Deployment**: GitHub Pages.",
+  "updatedAt": "2025-11-25T13:31:15.946874700Z"
+}

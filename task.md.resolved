@@ -1,0 +1,13 @@
+# Tasks
+
+- [ ] Analyze Google Sheet Data Structure <!-- id: 0 -->
+- [ ] Create Implementation Plan <!-- id: 1 -->
+- [/] Initialize Vite Project (React) <!-- id: 2 -->
+- [x] Implement Data Fetching (Google Sheet CSV) <!-- id: 3 -->
+- [x] Implement Weather Integration (OpenMeteo) <!-- id: 4 -->
+- [x] Build UI Components <!-- id: 5 -->
+    - [x] Daily Schedule View <!-- id: 6 -->
+    - [x] Detail Modal/Page <!-- id: 7 -->
+    - [x] Weather Widget <!-- id: 8 -->
+- [x] Style Application (Vanilla CSS, Traditional Chinese) <!-- id: 9 -->
+- [/] Deploy to GitHub Pages <!-- id: 10 -->
