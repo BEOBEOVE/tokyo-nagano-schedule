@@ -11,7 +11,9 @@
     - [x] Weather Widget <!-- id: 8 -->
 - [x] Style Application (Vanilla CSS, Traditional Chinese) <!-- id: 9 -->
 - [x] Deploy to GitHub Pages <!-- id: 10 -->
-- [/] Implement Timeline Visuals (Dots & Lines) <!-- id: 11 -->
-- [/] Implement Expand/Collapse Interaction (Accordion) <!-- id: 12 -->
-- [ ] Verify Animations <!-- id: 13 -->
-- [ ] Redeploy Updates <!-- id: 14 -->
+- [x] Implement Timeline Visuals (Dots & Lines) <!-- id: 11 -->
+- [x] Implement Expand/Collapse Interaction (Accordion) <!-- id: 12 -->
+- [x] Verify Animations <!-- id: 13 -->
+- [x] Redeploy Updates <!-- id: 14 -->
+- [ ] Apply Pill Shape Styling (Rounded Corners) <!-- id: 15 -->
+- [ ] Verify & Redeploy <!-- id: 16 -->

@@ -4,7 +4,8 @@ I have successfully created and deployed the Daily Schedule Web App for the Toky
 
 ## Features
 - **Daily Schedule**: Browse the itinerary day by day.
-- **Detail View**: Click on any day to see detailed activities.
+- **Timeline View**: Visual timeline with connecting lines and dots for a continuous journey feel.
+- **Accordion Interaction**: Click on any day to smoothly expand and see detailed activities.
 - **Google Maps Integration**: Click on location names to open them in Google Maps.
 - **Weather & Clothing**: Shows weather forecasts and clothing suggestions (mocked for 2026).
 - **Responsive Design**: Works on mobile and desktop.
@@ -18,7 +19,11 @@ The app is deployed to GitHub Pages.
 I verified the app locally using the browser tool.
 
 ### Screenshots
-![Day 1 Modal](day_1_modal_1764077639582.png)
+**Timeline View**
+![Timeline View](timeline_view_1764078540330.png)
+
+**Expanded Card**
+![Expanded Card](expanded_card_1764078571851.png)
 
 ### Video Walkthrough
-![UI Verification](verify_app_ui_1764077620580.webp)
+![UI Verification](verify_timeline_accordion_1764078530644.webp)
